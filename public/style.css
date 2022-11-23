@@ -1,0 +1,77 @@
+.game{
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    
+}
+.img-forca{
+    width: 400px;
+}
+.askWord{
+    width: 200px;
+    height: 60px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.word-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.word{
+    font-size: 50px;
+}
+.alpha{
+    width: 664px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap:wrap ;
+    gap: 12px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+.letters{
+    font-size: 30px;
+    width: 35px;
+    height: 35px;
+    color: #39739D;
+    background-color:  #E1ECF4;
+    text-align: center;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+
+}
+.guess{
+   display: flex;
+   align-items: center;
+   align-content: center;
+   margin: auto;
+   width: 624px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+.input-guess{
+    width: 353px;
+    box-shadow: none;
+    height: 40px;
+    margin-right: 15px;
+    margin-left: 12px;
+}
+.button-guess{
+    height: 50px;
+    color: #39739D;
+    background-color:  #E1ECF4;
+    text-align: center;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+
+}
