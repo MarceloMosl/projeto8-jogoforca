@@ -80,3 +80,18 @@
     background-color: #9FAAB5;;
 
 }
+.dontShow{
+    color:red
+}
+.show{
+    color: blue;
+}
+.off{
+    background-color: #9FAAB5;;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
