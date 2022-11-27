@@ -3,11 +3,15 @@ import palavras from "./palavras";
 
 export default function Jogo({palavraencriptada, setUnderline, imgForca, setWord, setStatusJogo, winOrLose, statusPalavra, word}){
 
-    function startGame(){ 
+    function startGame(){
+        if(statusPalavra == true){
+            window.location.reload()
+            setTimeout(startGame, 1000)
+        }else {
     const wordSetting = palavras[Math.floor(Math.random() * palavras.length)]
     setWord(wordSetting)
     setUnderline([...wordSetting])
-    setStatusJogo("")
+    setStatusJogo("")}
     }   
 
     return (

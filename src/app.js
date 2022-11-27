@@ -14,6 +14,7 @@ export default function App() {
     const lgl = underline.map((a,b) => letraClicada.includes(a) ? `${a}` : " _ " )
     const palavraencriptada = lgl
     const [statusPalavra, setStatusPalavra] = React.useState(false)
+    const [chute, setChute] = React.useState("")
 
     
 
@@ -48,7 +49,17 @@ export default function App() {
         setStatusPalavra={setStatusPalavra}
 
         />
-        <Chute />
+        <Chute
+        word={word}
+        chute={chute}
+        setChute={setChute}
+        setStatusJogo={setStatusJogo}
+        imgForca={imgForca}
+        setImgForca={setImgForca}
+        setWinOrLose={setWinOrLose}
+        setStatusPalavra={setStatusPalavra}
+        statusJogo={statusJogo}
+        />
         </>
     )
 

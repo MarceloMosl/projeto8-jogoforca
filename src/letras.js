@@ -11,7 +11,7 @@ export default function Letras({
   palavraencriptada,
   word,
   setStatusPalavra,
-  setStatusJogo
+  setStatusJogo,
 }) {
   const alfabeto = [
     "a",
@@ -44,41 +44,44 @@ export default function Letras({
   const [contador, setContador] = React.useState(0);
 
   function select(letra) {
-    const click = [...clicados, letra]
-    const wordsNLetter = [...palavraencriptada, letra]
+    const click = [...clicados, letra];
     setClicados(click);
     setLetraClicada(click);
-    let checker = (arr, target) => target.every(v => arr.includes(v));
-    console.log(word)
-    const arrWord = [...word]
-    console.log(arrWord)
-    console.log(click)
-    console.log("novo verificador " + checker(click, arrWord))
-  
+    let checker = (arr, target) => target.every((v) => arr.includes(v));
+    const arrWord = [...word];
+
     if (checker(click, arrWord) == false && imgForca < 6) {
-      
       if (!underline.includes(letra)) {
         setImgForca(imgForca + 1);
-          } else {
+      } else {
         setContador(contador + 1);
       }
-    } else if (checker(click, arrWord) == true){
-      alert("parabens voce ganhou");
-      setWinOrLose("green")
-      setStatusJogo("off")
-      setTimeout(()=> window.location.reload(), 5000)
-    }
-    else{
-        alert("perdeu ")
-        setWinOrLose("red")
-        setStatusJogo("off")
-        setStatusPalavra(true)
+    } else if (checker(click, arrWord) == true) {
+      setWinOrLose("green");
+      setStatusJogo("off");
+      setStatusPalavra(true);
+      setTimeout(() => window.location.reload(), 5000);
+    } else if (imgForca >= 6) {
+      setWinOrLose("red");
+      setStatusJogo("off");
+      setStatusPalavra(true);
     }
   }
 
   return (
     <div class="alpha">
-      {alfabeto.map((a) => (<div onClick={() => select(a)} class={`letters ${clicados.includes(a) ? "selecionado" : ""} ${statusJogo}`}>{a}</div>))}
-  </div>
+      {alfabeto.map((a) => (
+        <div>
+          <button
+          onClick={() => select(a)}
+          class={`letters ${
+            clicados.includes(a) ? "selecionado" : ""
+          } ${statusJogo}`}
+          disabled={statusJogo == "off" ? true : false}>
+            {a}
+            </button>
+        </div>
+      ))}
+    </div>
   );
 }
