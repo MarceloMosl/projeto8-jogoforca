@@ -9,13 +9,11 @@ export default function Chute({chute, setChute, word, setWinOrLose, setStatusJog
             setWinOrLose("green")
             setStatusJogo("off")
         }else{
-                if(imgForca >= 6){
-                    setStatusPalavra(true)
-                    setWinOrLose("red")
-                    setStatusJogo("off")
-                } else {
-                    setImgForca(imgForca + 1)
-                }
+                setImgForca(6)
+                setStatusPalavra(true)
+                setWinOrLose("red")
+                setStatusJogo("off")
+               
         }
         setChute("")
     }
@@ -23,8 +21,8 @@ export default function Chute({chute, setChute, word, setWinOrLose, setStatusJog
     return (
         <div class="guess">
             <p>Já sei a palavra!</p>
-            <input onChange={changeInput} value={chute} disabled={statusJogo == "off" ? true : false} type="text" class="input-guess"></input>
-            <button disabled={statusJogo == "off" ? true : false} onClick={guess} class="button-guess">Chutar!</button>
+            <input onChange={changeInput} data-test="guess-input" value={chute} disabled={statusJogo == "off" ? true : false} type="text" class="input-guess"></input>
+            <button data-test="guess-button" disabled={statusJogo == "off" ? true : false} onClick={guess} class="button-guess">Chutar!</button>
         </div>
     )
 }

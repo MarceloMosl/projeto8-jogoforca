@@ -49,6 +49,7 @@ export default function Letras({
     setLetraClicada(click);
     let checker = (arr, target) => target.every((v) => arr.includes(v));
     const arrWord = [...word];
+    console.log(word)
 
     if (checker(click, arrWord) == false && imgForca < 6) {
       if (!underline.includes(letra)) {
@@ -71,13 +72,15 @@ export default function Letras({
   return (
     <div class="alpha">
       {alfabeto.map((a) => (
-        <div>
+        <div class="div-letters">
           <button
           onClick={() => select(a)}
+          data-test="letter"
           class={`letters ${
             clicados.includes(a) ? "selecionado" : ""
           } ${statusJogo}`}
-          disabled={statusJogo == "off" ? true : false}>
+          disabled={statusJogo == "off" || clicados.includes(a) ? true : false}
+          >
             {a}
             </button>
         </div>

@@ -6,7 +6,6 @@ export default function Jogo({palavraencriptada, setUnderline, imgForca, setWord
     function startGame(){
         if(statusPalavra == true){
             window.location.reload()
-            setTimeout(startGame, 1000)
         }else {
     const wordSetting = palavras[Math.floor(Math.random() * palavras.length)]
     setWord(wordSetting)
@@ -16,12 +15,12 @@ export default function Jogo({palavraencriptada, setUnderline, imgForca, setWord
 
     return (
     <div class="game">
-        <img class="img-forca" src={`assets/forca${imgForca}.png`}></img>
+        <img class="img-forca" data-test="game-image" src={`assets/forca${imgForca}.png`}></img>
         <div class="word-button">
-            <div class="askWord"><button onClick={startGame} class="askWord" >Escolher Palavra</button></div>
+            <div class="askWord"><button onClick={startGame} data-test="choose-word" class="askWord" >Escolher Palavra</button></div>
             <div class={`word ${winOrLose}`}>
 
-            {statusPalavra ? word : palavraencriptada}
+            {statusPalavra ? word : <div data-test="word" data-answer={`${word}`}>{palavraencriptada}</div>}
 
             </div>
 
