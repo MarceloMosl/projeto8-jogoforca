@@ -61,7 +61,6 @@ export default function Letras({
       setWinOrLose("green");
       setStatusJogo("off");
       setStatusPalavra(true);
-      setTimeout(() => window.location.reload(), 5000);
     } else if (imgForca >= 6) {
       setWinOrLose("red");
       setStatusJogo("off");
